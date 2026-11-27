@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Cormorant Fallback";
+  src: local("Georgia"), local("Times New Roman");
+  size-adjust: 94%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Outfit Fallback";
+  src: local("Segoe UI"), local("Arial");
+  size-adjust: 100%;
+  ascent-override: 98%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+
+@theme {
+  --font-serif: "Cormorant Garamond", "Cormorant Fallback", Georgia, serif;
+  --font-sans: "Outfit", "Outfit Fallback", system-ui, -apple-system, sans-serif;
+  --font-arabic: "Noto Naskh Arabic", "Outfit", serif;
+
+  --color-obsidian: #0e0c0b;
+  --color-espresso: #171311;
+  --color-roast: #221c18;
+  --color-ivory: #f3ede2;
+  --color-stone: #b5a898;
+  --color-crema: #c89b65;
+  --color-terracotta: #9e5531;
+  --color-pistachio: #b5c28e;
+  --color-band: #f2ece1;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  background-color: #0e0c0b;
+  color: #f3ede2;
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+html[dir="rtl"] body {
+  font-family: var(--font-arabic);
+}
+
+.kaf-hero-glow {
+  background-image: radial-gradient(
+    ellipse 80% 50% at 50% 0%,
+    rgba(158, 85, 49, 0.14),
+    transparent 70%
+  );
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes kaf-stroke-draw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes kaf-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kaf-logo-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: kaf-stroke-draw 1.4s cubic-bezier(0.65, 0, 0.35, 1) forwards;
+}
+
+.kaf-wordmark-reveal {
+  opacity: 0;
+  animation: kaf-fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.75s forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .kaf-logo-draw {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .kaf-wordmark-reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

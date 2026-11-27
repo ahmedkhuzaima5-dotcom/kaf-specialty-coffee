@@ -1,0 +1,18 @@
+{
+  "name": "KAF — Speciality Coffee",
+  "short_name": "KAF",
+  "description": "Speciality Coffee & Quiet Luxury Rituals at Roomy Signature Hotel, F-6 Markaz, Islamabad.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0E0C0B",
+  "theme_color": "#0E0C0B",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/kaf-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
